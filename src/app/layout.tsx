@@ -11,7 +11,7 @@ const neueMontreal = localFont({
     { path: "../fonts/PPNeueMontreal-Light.otf", weight: "300", style: "normal" },
     { path: "../fonts/PPNeueMontreal-Regular.otf", weight: "400", style: "normal" },
     { path: "../fonts/PPNeueMontreal-Semibold.otf", weight: "600", style: "normal" },
-    { path: "../fonts/PPNeueMontreal-ExtraBold.otf", weight: "800", style: "normal" },
+    { path: "../fonts/PPNeueMontreal-Extrabold.otf", weight: "800", style: "normal" },
   ],
   variable: "--font-neue",
   display: "swap",
