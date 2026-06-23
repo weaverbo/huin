@@ -1,0 +1,45 @@
+HUIN 웹사이트의 공통 컴포넌트 Header와 Footer를 구현해줘.
+
+## 참고 시안
+docs/design/ 폴더의 시안 이미지를 기준으로 구현할 것:
+- landing-desktop.png : 랜딩 페이지 (헤더가 herobg 이미지 위에 가로 1440px에다가 세로 78px을 배경으로 두고 흰배경에 background blur 9.1 주고 흰색은 opacity 20%로 주고 위에 들어가는 text는 font 컬러가 흰색으로 얹힌 버전)
+- projects-desktop.png : 프로젝트 목록 (헤더가 landingpage header동일한 사이즈이지만, 배경 컬러 따로 넣지 않고, font 컬러만 검정인 버전)
+헤더/푸터의 정확한 레이아웃·정렬·간격은 이 시안을 보고 맞출 것.
+
+## 작업 범위
+- src/components/layout/Header.tsx
+- src/components/layout/Footer.tsx
+- 구현 후 src/app/layout.tsx의 주석 처리된 Header/Footer import와 사용부를 활성화
+
+## 디자인 토큰 (src/styles/globals.css에 정의됨 — 반드시 이것만 사용)
+- 색: bg(#f2f1f0), ink(#000), muted(#6b6961), accent(#a68b6f)
+  → Tailwind 클래스 bg-bg, text-ink, text-muted, text-accent 로 사용
+- 폰트: body에 font-sans 적용됨 (PP Neue Montreal + Pretendard 자동) — 별도 지정 불필요
+- 폰트 크기: text-2xs(12) ~ text-7xl(128) 토큰만 사용
+- 컨테이너: .container-base 클래스 (max 1440px, 좌우 패딩 48px) — 헤더/푸터 내부 콘텐츠를 이걸로 감쌀 것
+- 간격: Tailwind 기본 스케일만 사용. arbitrary value(예: mt-[37px], py-[83px]) 금지.
+
+## Header 요구사항
+두 가지 변형이 필요하므로 variant prop으로 처리:
+- variant: "transparent" (랜딩용) | "solid" (그 외 모든 페이지)
+- transparent (landing-desktop.png 참고): hero 이미지 위에 absolute 배치, 로고·메뉴 흰색.
+  메뉴: PROJECTS / INSTAGRAM + 우측에 테두리 친 CONTACT 버튼
+- solid (projects-desktop.png 참고): 일반 배경(bg), 로고·메뉴 검정(text-ink).
+  메뉴: HOME / PROJECTS / CONTACT
+- 좌측 로고 "HUIN"(텍스트), 우측 내비게이션
+- 모든 항목은 next/link의 Link로: HOME→/, PROJECTS→/projects, CONTACT→/contact, INSTAGRAM→외부링크(일단 #)
+
+## Footer 요구사항 (모든 페이지 공통, 변형 없음)
+- 좌측: "HUIN" 로고(크게) + 아래 "설계에 따라 / 공간의 경험이 달라집니다." 슬로건
+- 중앙: ABOUT / PROJECTS / CONTACT 세로 나열
+- 우측: INSTAGRAM
+- 하단 영역: 좌측에 대표자명 김현우 / 사업자 등록번호 123-45-67890 / 주소 서울특별시 강남구 테헤란로 152, 5층,
+  우측에 고객센터 1544-2720 / 휴대번호 010-0511-0745 / 문의메일 huin@naver.com
+- 최하단: 중앙에 © 2024 HUIN. All rights reserved. / 우측에 개인정보보호 · 쿠키설정 · 이용약관
+- 푸터 콘텐츠도 .container-base로 감쌀 것
+
+## 제약
+- 데스크톱(1440px 기준)만. 반응형은 이 단계에서 고려하지 않음.
+- 토큰에 없는 색·폰트·arbitrary 간격을 임의로 만들지 말 것.
+- "간격은 Tailwind 기본 스케일만, -[37px] 같은 arbitrary value 금지."
+- 시안 색이 토큰과 미묘하게 다르면 가장 가까운 토큰을 쓰고, 어디서 그렇게 했는지 알려줘.
