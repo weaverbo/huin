@@ -1,0 +1,239 @@
+목표: src/(main)/page.tsx에 추가한다.
+
+아래 export 코드를 기준으로 그대로 구현해라. 클래스명, px 값, 색상, 폰트, 레이아웃 구조 전부 변경 없이 그대로 사용한다. 값을 토큰으로 바꾸거나 레이아웃을 재구성하지 마라.(최종 구현 모습은 docs/design/landingp-desktop의 projects 섹션과 동일하게 구현할것)
+
+[참고 코드 붙임]
+
+import cardimage from "./cardimage.png";
+import cardimagewrapper from "./cardimagewrapper.png";
+import cardimagewrapper2 from "./cardimagewrapper-2.png";
+import cardimagewrapper3 from "./cardimagewrapper-3.png";
+import image from "./image.png";
+
+type ProjectCard = {
+  year: string;
+  category: string;
+  title: string;
+  imageSrc: string;
+  imageAlt: string;
+  containerClassName: string;
+  imageClassName: string;
+  metaWrapperClassName: string;
+  yearCategoryRowClassName: string;
+  titleWrapperClassName: string;
+  titleClassName: string;
+};
+
+const featuredProject: ProjectCard = {
+  year: "2026",
+  category: "Interior",
+  title: "대흥동 A 아파트",
+  imageSrc: cardimagewrapper3,
+  imageAlt: "대흥동 A 아파트 인테리어 프로젝트 이미지",
+  containerClassName: "ml-[431px] w-[961px] h-[584px] flex flex-col gap-2",
+  imageClassName: "w-[960px] h-[538px] object-cover",
+  metaWrapperClassName: "h-[38px] flex flex-col gap-1",
+  yearCategoryRowClassName: "w-[963px] flex gap-[876px]",
+  titleWrapperClassName: "w-[92px] flex",
+  titleClassName:
+    "w-[92px] h-5 [font-family:'PP_Neue_Montreal-Semibold',Helvetica] font-normal text-gray-900 text-sm tracking-[0] leading-5",
+};
+
+const projectCards: ProjectCard[] = [
+  {
+    year: "2026",
+    category: "Interior",
+    title: "브루클린 커피 서울",
+    imageSrc: cardimagewrapper,
+    imageAlt: "브루클린 커피 서울 인테리어 프로젝트 이미지",
+    containerClassName: "w-[312px] h-[358px] flex flex-col gap-2",
+    imageClassName: "w-[315px] h-[312px] object-cover",
+    metaWrapperClassName: "ml-px w-[314px] h-[38px] flex flex-col gap-1",
+    yearCategoryRowClassName: "w-[314px] flex gap-[227px]",
+    titleWrapperClassName: "w-[109px] flex",
+    titleClassName:
+      "w-[109px] h-5 [font-family:'PP_Neue_Montreal-Semibold',Helvetica] font-normal text-gray-900 text-sm tracking-[0] leading-5",
+  },
+  {
+    year: "2026",
+    category: "Interior",
+    title: "오디너리 하우스",
+    imageSrc: cardimage,
+    imageAlt: "오디너리 하우스 인테리어 프로젝트 이미지",
+    containerClassName: "w-[311px] h-[524px] flex flex-col gap-2",
+    imageClassName: "w-[314px] h-[478px] object-cover",
+    metaWrapperClassName: "w-[314px] h-[38px] flex flex-col gap-1",
+    yearCategoryRowClassName: "w-[314px] flex gap-[227px]",
+    titleWrapperClassName: "w-[93px] flex",
+    titleClassName:
+      "w-[109px] h-5 [font-family:'PP_Neue_Montreal-Semibold',Helvetica] font-normal text-gray-900 text-sm tracking-[0] leading-5",
+  },
+  {
+    year: "2026",
+    category: "Interior",
+    title: "스튜디오 모어",
+    imageSrc: image,
+    imageAlt: "스튜디오 모어 인테리어 프로젝트 이미지",
+    containerClassName: "w-[311px] h-[358px] flex flex-col gap-2",
+    imageClassName: "w-[314px] h-[312px] object-cover",
+    metaWrapperClassName: "ml-px w-[314px] h-[38px] flex flex-col gap-1",
+    yearCategoryRowClassName: "w-[314px] flex gap-[227px]",
+    titleWrapperClassName: "w-[81px] flex",
+    titleClassName:
+      "w-[81px] h-5 [font-family:'PP_Neue_Montreal-Semibold',Helvetica] font-normal text-gray-900 text-sm tracking-[0] leading-5",
+  },
+  {
+    year: "2026",
+    category: "Interior",
+    title: "플로우랩 서울",
+    imageSrc: cardimagewrapper2,
+    imageAlt: "플로우랩 서울 인테리어 프로젝트 이미지",
+    containerClassName: "w-[312px] h-[524px] flex flex-col gap-2",
+    imageClassName: "w-[314px] h-[478px] object-cover",
+    metaWrapperClassName: "w-[314px] h-[38px] flex flex-col gap-1",
+    yearCategoryRowClassName: "w-[314px] flex gap-[227px]",
+    titleWrapperClassName: "w-[81px] flex",
+    titleClassName:
+      "w-[81px] h-5 [font-family:'PP_Neue_Montreal-Semibold',Helvetica] font-normal text-gray-900 text-sm tracking-[0] leading-5",
+  },
+];
+
+const categoryTabs = [
+  {
+    label: "주요 프로젝트",
+    wrapperClassName: "w-[99px] relative h-10",
+    textClassName:
+      "absolute top-0 -left-3 [font-family:'PP_Neue_Montreal-Semibold',Helvetica] font-normal text-[#a68b6f] text-base text-center tracking-[-0.90px] leading-10 whitespace-nowrap",
+    current: true,
+  },
+  {
+    label: "INTERIOR",
+    wrapperClassName: "w-[67px] relative h-10",
+    textClassName:
+      "absolute top-0 left-0.5 [font-family:'PP_Neue_Montreal-Light',Helvetica] font-light text-[#a68b6f] text-center tracking-[-0.90px] leading-10 text-base whitespace-nowrap",
+    current: false,
+  },
+  {
+    label: "EXHIBITION",
+    wrapperClassName: "w-[81px] relative h-10",
+    textClassName:
+      "absolute top-0 left-[3px] [font-family:'PP_Neue_Montreal-Light',Helvetica] font-light text-[#a68b6f] text-base text-center tracking-[-0.90px] leading-10 whitespace-nowrap",
+    current: false,
+  },
+];
+
+const ProjectMeta = ({
+  year,
+  category,
+  title,
+  metaWrapperClassName,
+  yearCategoryRowClassName,
+  titleWrapperClassName,
+  titleClassName,
+}: Omit<
+  ProjectCard,
+  "imageSrc" | "imageAlt" | "containerClassName" | "imageClassName"
+>) => {
+  return (
+    <div className={metaWrapperClassName}>
+      <div className={yearCategoryRowClassName}>
+        <div className="w-[38px] flex">
+          <div className="w-[38px] h-3.5 [font-family:'PP_Neue_Montreal-Regular',Helvetica] font-normal text-black text-base tracking-[0] leading-[14px] whitespace-nowrap">
+            {year}
+          </div>
+        </div>
+        <div className="w-[49px] flex">
+          <div className="w-[49px] h-3.5 [font-family:'PP_Neue_Montreal-Regular',Helvetica] font-normal text-black tracking-[0] leading-[14px] text-base whitespace-nowrap">
+            {category}
+          </div>
+        </div>
+      </div>
+      <div className={titleWrapperClassName}>
+        <div className={titleClassName}>{title}</div>
+      </div>
+    </div>
+  );
+};
+
+export const Projectsection = (): JSX.Element => {
+  return (
+    <section
+      className="w-[1440px] h-[1684px] flex flex-col gap-[120px] bg-[#b7a68b1a]"
+      aria-labelledby="projects-heading"
+    >
+      <header className="ml-12 w-[1344px] h-20 relative mt-32">
+        <div className="absolute top-0 left-0 w-[1344px] h-10 flex justify-between">
+          <div className="w-[79px] h-[29px] flex">
+            <h2
+              id="projects-heading"
+              className="w-[88px] h-10 ml-px [font-family:'PP_Neue_Montreal-Semibold',Helvetica] font-normal text-[#a68b6f] text-2xl tracking-[-0.90px] leading-10 whitespace-nowrap"
+            >
+              Projects
+            </h2>
+          </div>
+          <nav
+            className="inline-flex w-[303px] h-10 relative -mr-px items-center gap-7"
+            aria-label="Project categories"
+          >
+            {categoryTabs.map((tab) => (
+              <div key={tab.label} className={tab.wrapperClassName}>
+                <button
+                  type="button"
+                  className={tab.textClassName}
+                  aria-pressed={tab.current}
+                >
+                  {tab.label}
+                </button>
+              </div>
+            ))}
+          </nav>
+        </div>
+        <p className="absolute top-10 left-[calc(50.00%_-_672px)] w-[480px] [font-family:'Plus_Jakarta_Sans-Regular',Helvetica] font-normal text-black text-2xl tracking-[-0.90px] leading-10">
+          인테리어와 전시 중심으로&nbsp;&nbsp;다양한 공간 경험을 설계
+        </p>
+      </header>
+      <article className={featuredProject.containerClassName}>
+        <img
+          className={featuredProject.imageClassName}
+          alt={featuredProject.imageAlt}
+          src={featuredProject.imageSrc}
+        />
+        <ProjectMeta
+          year={featuredProject.year}
+          category={featuredProject.category}
+          title={featuredProject.title}
+          metaWrapperClassName={featuredProject.metaWrapperClassName}
+          yearCategoryRowClassName={featuredProject.yearCategoryRowClassName}
+          titleWrapperClassName={featuredProject.titleWrapperClassName}
+          titleClassName={featuredProject.titleClassName}
+        />
+      </article>
+      <div className="ml-12 w-[1346px] flex">
+        <div className="w-[1344px] flex gap-[33px]">
+          {projectCards.map((project) => (
+            <article key={project.title} className={project.containerClassName}>
+              <img
+                className={project.imageClassName}
+                alt={project.imageAlt}
+                src={project.imageSrc}
+              />
+              <ProjectMeta
+                year={project.year}
+                category={project.category}
+                title={project.title}
+                metaWrapperClassName={project.metaWrapperClassName}
+                yearCategoryRowClassName={project.yearCategoryRowClassName}
+                titleWrapperClassName={project.titleWrapperClassName}
+                titleClassName={project.titleClassName}
+              />
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Projectsection;
+
+어떻게 구현할지는 이 코드 참고해서 토큰이랑 spec 참고해서 구현해줘

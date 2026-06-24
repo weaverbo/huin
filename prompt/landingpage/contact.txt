@@ -1,0 +1,90 @@
+목표: src/(main)/page.tsx에 추가한다.
+
+아래 export 코드를 기준으로 그대로 구현해라. 클래스명, px 값, 색상, 폰트, 레이아웃 구조 전부 변경 없이 그대로 사용한다. 값을 토큰으로 바꾸거나 레이아웃을 재구성하지 마라.(최종 구현 모습은 docs/design/landingp-desktop의 contact 섹션과 동일하게 구현할것)
+
+[참고 코드 붙임]
+
+import image from "./image.svg";
+import vector from "./vector.svg";
+
+import c71d6c6eBce24Ebb9220Dac4C113874D1 from "./c71d6c6e-bce2-4ebb-9220-dac4c113874d-1.png";
+import image from "./image.svg";
+import vector from "./vector.svg";
+
+export const Ctawrapper = (): JSX.Element => {
+  return (
+    <section
+      className="relative h-[525px] w-[1392px] bg-white"
+      aria-labelledby="cta-heading"
+    >
+      <div className="absolute left-12 top-32 flex h-[341px] w-[453px] flex-col">
+        <p className="h-10 w-[88px] whitespace-nowrap [font-family:'PP_Neue_Montreal-Semibold',Helvetica] text-2xl font-normal tracking-[-0.90px] text-[#a68b6f]">
+          Contact
+        </p>
+        <h2
+          id="cta-heading"
+          className="mt-4 h-24 w-[274px] [font-family:'PP_Neue_Montreal-Regular',Helvetica] text-[40px] font-normal leading-[48px] tracking-[0] text-black"
+        >
+          공간의 목적부터
+          <br />
+          함께 설계합니다.
+        </h2>
+        <div
+          className="mt-[35px] h-px w-20 bg-[url(/line-12.svg)] bg-cover bg-[50%_50%]"
+          aria-hidden="true"
+        />
+        <p className="mt-[90px] h-12 w-[172px] [font-family:'PP_Neue_Montreal-Regular',Helvetica] text-base font-normal leading-6 tracking-[0] text-black">
+          프로젝트를 시작 전
+          <br />
+          먼저 이야기를 나눠보세요.
+        </p>
+        <button
+          type="button"
+          className="all-unset absolute left-[276px] top-[240px] box-border flex w-[177px] items-center gap-2 focus-visible:rounded-[50px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#a68b6f]"
+          aria-label="상담 신청하기"
+        >
+          <span className="mt-[11px] flex w-[119px]">
+            <span className="ml-0.5 h-7 w-[115px] whitespace-nowrap text-center [font-family:'PP_Neue_Montreal-Semibold',Helvetica] text-xl font-normal leading-[28px] tracking-[0] text-[#a68b6f]">
+              상담 신청하기
+            </span>
+          </span>
+          <span
+            className="relative h-[50px] w-[50px] rounded-[50px] bg-[#a68b6f]"
+            aria-hidden="true"
+          >
+            <img
+              className="absolute left-[36%] top-[50%] h-[50%] w-[64%]"
+              alt=""
+              src={vector}
+            />
+            <img
+              className="absolute left-[50%] top-[36%] h-[64%] w-[50%]"
+              alt=""
+              src={image}
+            />
+          </span>
+        </button>
+      </div>
+      <div className="absolute left-[549px] top-0 flex h-[525px] w-[842px] justify-center overflow-hidden">
+        <img
+          className="ml-[-93px] mt-[-120px] aspect-[1.59] h-[645px] w-[1027px] object-cover"
+          alt="미니멀한 공간에 배치된 우드 가구"
+          src={c71d6c6eBce24Ebb9220Dac4C113874D1}
+        />
+      </div>
+    </section>
+  );
+};
+
+그리고 추가로
+ Projects 섹션과 같이 바깥 여백을 항상 48px 유지
+- 1440px보다 큰 viewport에서도
+- featured 이미지 폭이 같이 커지고
+- 카드 4개와 간격도 같이 넓어지도록 변경
+- 기존 고정 px 폭 일부를
+- %
+- w-full
+- grid
+기반으로 바꿨습니다
+
+어떻게 구현할지는 이 코드 참고해서 토큰이랑 spec 참고해서 구현해줘

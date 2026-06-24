@@ -1,0 +1,93 @@
+목표: src/(main)/page.tsx에 추가한다.
+
+아래 export 코드를 기준으로 그대로 구현해라. 클래스명, px 값, 색상, 폰트, 레이아웃 구조 전부 변경 없이 그대로 사용한다. 값을 토큰으로 바꾸거나 레이아웃을 재구성하지 마라.(최종 구현 모습은 docs/design/landingp-desktop의 ourapproach와 동일하게 구현할것)
+
+[참고 코드 붙임]
+
+import btnwrapper from "./btnwrapper.png";
+import image from "./image.png";
+import image2 from "./image-2.png";
+import line12 from "./line-12.svg";
+
+export const Aboutsection = (): JSX.Element => {
+  const headingLines = ["공간을 하나의", "경험으로 설계합니다"];
+  const descriptionLines = [
+    "은 팝업부터 전시, 인테리어를 아우르며,",
+    "브랜드의 목적과 사용자 경험을 기준으로 공간을 구성합니다.",
+  ];
+
+  return (
+    <section
+      className="relative w-[1343px] h-[795px]"
+      aria-labelledby="about-section-heading"
+    >
+      <img
+        className="absolute top-0 right-0 w-[468px] h-[581px]"
+        alt="목재 인테리어 공간 전경"
+        src={image}
+      />
+      <div className="absolute top-0 left-0 w-[816px] h-[795px] flex flex-col">
+        <div className="w-[138px] flex">
+          <p className="mt-0 w-[142px] h-10 -ml-1 [font-family:'PP_Neue_Montreal-Semibold',Helvetica] font-normal text-[#a68b6f] text-2xl text-center tracking-[-0.90px] leading-10 whitespace-nowrap">
+            Our Approach
+          </p>
+        </div>
+        <h2
+          id="about-section-heading"
+          className="-ml-1 w-[340px] h-[106px] mt-[16px] [font-family:'PP_Neue_Montreal-Semibold',Helvetica] font-normal text-gray-900 text-[40px] tracking-[0] leading-[53px]"
+        >
+          {headingLines.map((line, index) => (
+            <span key={line}>
+              {line}
+              {index < headingLines.length - 1 && <br />}
+            </span>
+          ))}
+        </h2>
+        <img
+          className="w-20 h-px mt-[35px] object-cover"
+          alt=""
+          aria-hidden="true"
+          src={line12}
+        />
+        <p className="w-[392px] h-[58px] mt-[34px] [font-family:'PP_Neue_Montreal-Regular',Helvetica] font-normal text-black text-base tracking-[0] leading-[29px]">
+          <strong className="[font-family:'PP_Neue_Montreal-Regular',Helvetica] font-normal text-black text-base tracking-[0] leading-[29px]">
+            HUIN
+          </strong>
+          {descriptionLines.map((line, index) => (
+            <span
+              key={line}
+              className="[font-family:'PP_Neue_Montreal-Regular',Helvetica] font-normal text-black text-base tracking-[0] leading-[29px]"
+            >
+              {line}
+              {index < descriptionLines.length - 1 && <br />}
+            </span>
+          ))}
+        </p>
+        <img
+          className="w-[820px] h-[412px] mt-[93px]"
+          alt="휴식 공간이 있는 미니멀 인테리어"
+          src={image2}
+        />
+      </div>
+      <button
+        type="button"
+        className="all-unset box-border absolute -right-px bottom-0 w-[182px] h-[50px] flex items-center gap-4 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a68b6f]"
+        aria-label="View Projects"
+      >
+        <span className="mt-3.5 w-[117px] h-[22px] -ml-px [font-family:'PP_Neue_Montreal-Regular',Helvetica] font-normal text-[#a68b6f] text-xl text-center tracking-[0] leading-[22px] whitespace-nowrap">
+          View Projects
+        </span>
+        <img
+          className="w-[50px] h-[50px]"
+          alt=""
+          aria-hidden="true"
+          src={btnwrapper}
+        />
+      </button>
+    </section>
+  );
+};
+
+export default Aboutsection;
+
+어떻게 구현할지는 이 코드 참고해서 토큰이랑 spec 참고해서 구현해줘

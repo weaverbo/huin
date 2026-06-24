@@ -38,7 +38,13 @@ export default function Header() {
               const isExternal = link.href.startsWith("http") || link.href === "#";
 
               return (
-                <Link key={link.label} href={link.href} className={`${textClass}`} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined}>
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`${textClass} ${isTransparent ? "font-semibold" : ""}`}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noreferrer" : undefined}
+                >
                   {link.label}
                 </Link>
               );
@@ -50,7 +56,10 @@ export default function Header() {
           </nav>
 
           {isTransparent ? (
-            <Link href="/contact" className="ml-auto rounded border border-white px-5 py-1 text-xs leading-none text-white">
+            <Link
+              href="/contact"
+              className="ml-auto flex h-[30px] w-[101px] items-center justify-center rounded border border-white px-[20px] py-[9.5px] text-xs leading-none text-white"
+            >
               CONTACT
             </Link>
           ) : null}
