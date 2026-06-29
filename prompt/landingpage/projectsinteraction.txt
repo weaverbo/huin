@@ -1,0 +1,12 @@
+현재 src/(main)/page.tsx에 있는 Projects 섹션의 인터랙션을 구현해줘.
+
+Our Approach 섹션
+트리거: 섹션 뷰포트 진입
+동작: 요소별 fade-up
+순서 (delay 각 0.15s씩):
+이미지
+"Our Approach"
+"공간을 하나의 경험으로 설계합니다" (통째로)
+line
+본문
+값: duration 0.6s, ease-out, 1회

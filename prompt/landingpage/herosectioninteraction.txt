@@ -1,0 +1,23 @@
+현재 src/(main)/page.tsx에 있는 herosection의 인터랙션을 구현해줘.
+
+추가하고 싶은 인터랙션은 다음 내용이고, 
+히어로 배경 이미지 인트로
+트리거: 페이지 로드
+대상: 히어로 배경 이미지
+동작: 이미지 scale 크게 → 제자리 (천천히 줌아웃)
+값: duration 약 2~2.5s, ease-out, 1회
+히어로 텍스트 등장
+트리거: 페이지 로드 (배경보다 0.5s 늦게)
+대상: 히어로 텍스트
+동작: opacity 0→1 (+ 살짝 위로 이동)
+값: delay 0.5s, duration 약 1s, ease-out
+SCROLL DOWN - 트리거: hover - 동작: 아이콘이 위아래로 살짝 까딱 (bounce) - 값: translateY 0 ↔ 6px, duration 1s, ease-in-out, 무한반복 - (클릭 시: 다음 섹션으로 스크롤 이동)
+
+Contact 버튼 hover
+트리거: hover
+대상: Contact 버튼
+동작: 배경 블랙, 텍스트 화이트로 변경
+값: duration 250ms, ease-out
+상태: default / hover
+
+이 내용을 바탕으로 interaction 코드를 작성해줘.

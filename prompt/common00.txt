@@ -1,0 +1,33 @@
+현재 src/(main)/page.tsx에 다음 내용의 인터랙션을 구현해줘
+
+공통 인터랙션
+메뉴 hover (상단·하단 GNB)
+트리거: hover
+대상: 상단·하단 메뉴 항목
+동작: underline 등장 (화이트 컬러)
+값: underline 가로 100% / 두께 1.5px, duration 0.3s, ease-out
+상태: default / hover / active(현재 페이지 underline 유지)
+CTA 버튼 hover (view more)
+트리거: hover
+대상: view more 버튼
+동작: 원형 → 알약형으로 확장, "view more" 텍스트 등장, 배경색 채워짐(흰→검), 텍스트 색 반전(검→흰)
+값: duration 250ms, ease-out, border-radius 10px
+상태: default(원형) / hover(알약 + 텍스트)
+프로젝트 카드 hover
+트리거: hover
+대상: 프로젝트 카드
+동작: 이미지 위 view more 오버레이 fade-in / 이미지 scale 1.03
+값: duration 250~300ms, ease-out
+상태: default / hover
+참고
+별도 비주얼 첨부 권장: view more 버튼(원→알약), 햄버거 메뉴 등 글로 설명이 어려운 동작은 짧은 화면 녹화/프로토 첨부 예정.
+값은 기본값이며 실제 속도감은 개발 단계에서 함께 조정.
+
+-
+이제 Our Approach의 View Projects CTA는
+- 평소엔 이전처럼 텍스트 + 아이콘이 그대로 보이고
+- hover 시
+- 전체 배경이 아이콘 원형 배경색과 같은 accent 색으로 채워지고
+- border-radius: 30px
+- 텍스트 색은 화이트로 바뀝니다
+검증

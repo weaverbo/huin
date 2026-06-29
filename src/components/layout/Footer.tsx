@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const footerLinks = [
   { href: "/about", label: "ABOUT" },
@@ -13,6 +16,8 @@ const policyLinks = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+
   return (
     <footer className="bg-bg pt-20 text-ink">
       <div className="container-base">
@@ -34,14 +39,14 @@ export default function Footer() {
           <div className="flex pt-2 text-base leading-none justify-end">
             <nav className="flex flex-col gap-4" style={{ width: "80px", marginRight: "295px" }}>
               {footerLinks.map((link) => (
-                <Link key={link.label} href={link.href}>
+                <Link key={link.label} href={link.href} className={`menu-underline ${pathname === link.href ? "is-active" : ""}`}>
                   {link.label}
                 </Link>
               ))}
             </nav>
 
             <div className="text-base" style={{ width: "176px" }}>
-              <Link href="#" target="_blank" rel="noreferrer">
+              <Link href="#" target="_blank" rel="noreferrer" className="menu-underline">
                 INSTAGRAM
               </Link>
             </div>

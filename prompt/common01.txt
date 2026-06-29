@@ -1,0 +1,18 @@
+현재 src/(main)/page.tsx에 있는 Projects 섹션에 다음 인터랙션을 구현해줘.
+
+1번
+이제 Our Approach의 View Projects CTA와 같이 
+Projects 섹션의 interaction을 추가해줬으면 하는데 
+
+
+이미지 hover 시, 
+view more의 아이콘의 배경 
+- 평소엔 이전처럼 텍스트 + 아이콘이 그대로 보이고
+- hover 시
+- 전체 배경이 아이콘 원형 배경색(#a18d75)과 같은 accent 색으로 채워지고
+- border-radius: 30px
+- 텍스트 색은 화이트로 바뀝니다
+검증
+
+2번
+이미지 클릭했을 때 나타나는 viewmore의 아이콘 배경색 내부의 간격이 텍스트와 아이콘 사이의 간격은 16px 그리고 좌우 내부 간격은 18px로 해줘

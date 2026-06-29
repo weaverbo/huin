@@ -41,7 +41,7 @@ export default function Header() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`${textClass} ${isTransparent ? "font-semibold" : ""}`}
+                  className={`${textClass} ${isTransparent ? "menu-underline font-semibold" : ""} ${pathname === link.href ? "is-active" : ""}`}
                   target={isExternal ? "_blank" : undefined}
                   rel={isExternal ? "noreferrer" : undefined}
                 >
@@ -58,7 +58,7 @@ export default function Header() {
           {isTransparent ? (
             <Link
               href="/contact"
-              className="ml-auto flex h-[30px] w-[101px] items-center justify-center rounded border border-white px-[20px] py-[9.5px] text-xs leading-none text-white"
+              className="ml-auto flex h-[30px] w-[101px] items-center justify-center rounded border border-white px-[20px] py-[9.5px] text-xs leading-none text-white transition-colors duration-[250ms] ease-out hover:border-black hover:bg-black hover:text-white"
             >
               CONTACT
             </Link>
